@@ -96,7 +96,7 @@ export const getRoadmap = async () => {
           url: photo.url,
         };
       }),
-      contributingMembers: data.contributing_members.map((member: string) => {
+      contributingMembers: data.contributingMembers.map((member: string) => {
         return member;
       }),
     };

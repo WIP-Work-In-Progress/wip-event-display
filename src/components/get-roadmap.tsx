@@ -1,4 +1,4 @@
-import { getRoadmapEvent } from "@/lib/firebase_utils";
+import { getRoadmapEvent } from "@/lib/firebase.utils";
 import { RoadmapEvent } from "@/types/types";
 import { useEffect, useState } from "react";
 

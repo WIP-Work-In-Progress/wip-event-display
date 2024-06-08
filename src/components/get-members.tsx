@@ -1,4 +1,4 @@
-import { getMembers } from "@/lib/firebase_utils";
+import { getMembers } from "@/lib/firebase.utils";
 import { Member } from "@/types/types";
 import { useEffect, useState } from "react";
 

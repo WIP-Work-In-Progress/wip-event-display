@@ -1,6 +1,6 @@
 // EXAMPLE
 
-import { getGames } from "@/lib/firebase_utils";
+import { getGames } from "@/lib/firebase.utils";
 import { Game } from "@/types/types";
 import { useEffect, useState } from "react";
 
