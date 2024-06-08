@@ -20,11 +20,11 @@ const GetMembers = () => {
       {members.map((member) => (
         <div key={member.id}>
           <h1>{member.name}</h1>
-          <p>{member.last_name}</p>
+          <p>{member.lastName}</p>
           <p>{member.title}</p>
-          <a href={member.github_url}>{member.github_url}</a>
-          <a href={member.linkedin_url}>{member.linkedin_url}</a>
-          <p>{member.is_presenting}</p>
+          <a href={member.githubUrl}>{member.githubUrl}</a>
+          <a href={member.linkedinUrl}>{member.linkedinUrl}</a>
+          <p>{member.isPresenting}</p>
         </div>
       ))}
     </div>

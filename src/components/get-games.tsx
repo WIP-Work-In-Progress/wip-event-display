@@ -24,9 +24,9 @@ const GetGames = () => {
         return (
           <div key={game.id}>
             <h2>{game.name}</h2>
-            <p>{game.short_description}</p>
+            <p>{game.shortDescription}</p>
             <p>{game.description}</p>
-            <img src={game.preview_photo.url} alt={game.preview_photo.name} />
+            <img src={game.previewPhoto.url} alt={game.previewPhoto.name} />
             {game.photos.map((photo, id) => {
               return <img key={id} src={photo.url} alt={photo.name} />;
             })}

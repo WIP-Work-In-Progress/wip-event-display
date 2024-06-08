@@ -5,31 +5,31 @@ export interface Photo {
 export interface Game {
   id: string;
   name: string;
-  short_description: string;
+  shortDescription: string;
   description: string;
-  preview_photo: Photo;
+  previewPhoto: Photo;
   photos: Photo[];
   urls?: string[];
 }
 
 export interface RoadmapEvent {
   id: string;
-  start_date: Date;
-  end_date: Date;
+  startDate: Date;
+  endDate: Date;
   name: string;
-  short_description: string;
+  shortDescription: string;
   description: string;
   urls?: string[];
   photos?: Photo[];
-  contributing_members: string[];
+  contributingMembers: string[];
 }
 
 export interface Member {
   id: string;
   name: string;
-  last_name: string;
+  lastName: string;
   title: string;
-  github_url: string;
-  linkedin_url: string;
-  is_presenting: boolean;
+  githubUrl: string;
+  linkedinUrl: string;
+  isPresenting: boolean;
 }

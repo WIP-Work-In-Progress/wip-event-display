@@ -23,10 +23,10 @@ const GetRoadmap = () => {
       {roadmap.map((event) => (
         <div key={event.id}>
           <h1>{event.name}</h1>
-          <p>{event.start_date.toLocaleDateString()}</p>
-          <p>{event.end_date.toDateString()}</p>
+          <p>{event.startDate.toLocaleDateString()}</p>
+          <p>{event.endDate.toDateString()}</p>
           <p>{event.description}</p>
-          <p>{event.short_description}</p>
+          <p>{event.shortDescription}</p>
           {event.urls?.map((url, id) => (
             <a href={url} key={id}>
               {url}{" "}
@@ -35,7 +35,7 @@ const GetRoadmap = () => {
           {event.photos?.map((photo, id) => (
             <img width="300" src={photo.url} key={id} />
           ))}
-          {event.contributing_members.map((member, id) => {
+          {event.contributingMembers.map((member, id) => {
             return <div key={id}> {member} </div>;
           })}
         </div>
