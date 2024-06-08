@@ -1,10 +1,17 @@
 import { db } from "@/firebase";
-import { Game, Member, RoadmapEvent } from "@/types/types";
-import { collection, doc, getDoc, getDocs, query } from "firebase/firestore";
+import { Game, Member, Photo, RoadmapEvent } from "@/types/types";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  orderBy,
+  query,
+} from "firebase/firestore";
 
 const gamesRef = collection(db, "games");
 const roadmapRef = collection(db, "roadmap");
-const usersRef = collection(db, "users");
+const usersRef = collection(db, "members");
 
 export const getGames = async () => {
   const result: Game[] = [];
@@ -12,10 +19,24 @@ export const getGames = async () => {
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
     const data = doc.data();
-    const game = {
+    const game: Game = {
       id: doc.id,
       name: data.name,
+      short_description: data.short_description,
       description: data.description,
+      preview_photo: {
+        name: data.preview_photo.name,
+        url: data.preview_photo.url,
+      },
+      photos: data.photos.map((photo: Photo) => {
+        return {
+          name: photo.name,
+          url: photo.url,
+        };
+      }),
+      urls: data.urls.map((url: string) => {
+        return url;
+      }),
     };
     result.push(game);
   });
@@ -27,28 +48,57 @@ export const getGame = async (id: string) => {
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
     const data = docSnap.data();
-    return {
+    const game: Game = {
       id: docSnap.id,
       name: data.name,
+      short_description: data.short_description,
       description: data.description,
+      preview_photo: {
+        name: data.preview_photo.name,
+        url: data.preview_photo.url,
+      },
+      photos: data.photos.map((photo: Photo) => {
+        return {
+          name: photo.name,
+          url: photo.url,
+        };
+      }),
+      urls: data.url.map((url: string) => {
+        return url;
+      }),
     };
+    return game;
   } else {
     console.log("No such document!");
   }
+  return null;
 };
 
 export const getRoadmap = async () => {
   const result: RoadmapEvent[] = [];
-  const q = query(roadmapRef);
+  const q = query(roadmapRef, orderBy("start_date"));
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
     const data = doc.data();
-    const event = {
+    const event: RoadmapEvent = {
       id: doc.id,
       start_date: data.start_date.toDate(),
       end_date: data.end_date.toDate(),
       name: data.name,
-      url: data.url,
+      short_description: data.short_description,
+      description: data.description,
+      urls: data.urls.map((url: string) => {
+        return url;
+      }),
+      photos: data.photos.map((photo: Photo) => {
+        return {
+          name: photo.name,
+          url: photo.url,
+        };
+      }),
+      contributing_members: data.contributing_members.map((member: string) => {
+        return member;
+      }),
     };
     result.push(event);
   });
@@ -60,51 +110,70 @@ export const getRoadmapEvent = async (id: string) => {
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
     const data = docSnap.data();
-    return {
+    const roadMapEvent: RoadmapEvent = {
       id: docSnap.id,
       start_date: data.start_date.toDate(),
       end_date: data.end_date.toDate(),
       name: data.name,
-      url: data.url,
+      short_description: data.short_description,
+      description: data.description,
+      urls: data.urls.map((url: string) => {
+        return url;
+      }),
+      photos: data.photos.map((photo: Photo) => {
+        return {
+          name: photo.name,
+          url: photo.url,
+        };
+      }),
+      contributing_members: data.contributing_members.map((member: string) => {
+        return member;
+      }),
     };
+    return roadMapEvent;
   } else {
     console.log("No such document!");
   }
+  return null;
 };
 
-export const getUsers = async () => {
+export const getMembers = async () => {
   const result: Member[] = [];
   const q = query(usersRef);
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
     const data = doc.data();
-    const member = {
+    const member: Member = {
       id: doc.id,
       name: data.name,
       last_name: data.last_name,
       title: data.title,
       github_url: data.github_url,
       linkedin_url: data.linkedin_url,
+      is_presenting: data.is_presenting,
     };
     result.push(member);
   });
   return result;
 };
 
-export const getUser = async (id: string) => {
+export const getMember = async (id: string) => {
   const docRef = doc(usersRef, id);
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
     const data = docSnap.data();
-    return {
+    const member: Member = {
       id: docSnap.id,
       name: data.name,
       last_name: data.last_name,
       title: data.title,
       github_url: data.github_url,
       linkedin_url: data.linkedin_url,
+      is_presenting: data.is_presenting,
     };
+    return member;
   } else {
     console.log("No such document!");
   }
+  return null;
 };

@@ -1,7 +1,15 @@
+export interface Photo {
+  name: string;
+  url: string;
+}
 export interface Game {
   id: string;
   name: string;
+  short_description: string;
   description: string;
+  preview_photo: Photo;
+  photos: Photo[];
+  urls?: string[];
 }
 
 export interface RoadmapEvent {
@@ -9,7 +17,11 @@ export interface RoadmapEvent {
   start_date: Date;
   end_date: Date;
   name: string;
-  url?: string;
+  short_description: string;
+  description: string;
+  urls?: string[];
+  photos?: Photo[];
+  contributing_members: string[];
 }
 
 export interface Member {
@@ -19,4 +31,5 @@ export interface Member {
   title: string;
   github_url: string;
   linkedin_url: string;
+  is_presenting: boolean;
 }

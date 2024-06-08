@@ -19,12 +19,24 @@ const GetGames = () => {
 
   return (
     <div>
-      <h1>GetGames</h1>
+      <h1>Games</h1>
       {games.map((game) => {
         return (
           <div key={game.id}>
             <h2>{game.name}</h2>
+            <p>{game.short_description}</p>
             <p>{game.description}</p>
+            <img src={game.preview_photo.url} alt={game.preview_photo.name} />
+            {game.photos.map((photo, id) => {
+              return <img key={id} src={photo.url} alt={photo.name} />;
+            })}
+            {game.urls?.map((url, id) => {
+              return (
+                <a key={id} href={url}>
+                  {url}
+                </a>
+              );
+            })}
           </div>
         );
       })}
