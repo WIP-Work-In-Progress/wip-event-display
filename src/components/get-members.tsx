@@ -24,6 +24,7 @@ const GetMembers = () => {
           <p>{member.title}</p>
           <a href={member.githubUrl}>{member.githubUrl}</a>
           <a href={member.linkedinUrl}>{member.linkedinUrl}</a>
+          <img width={100} src={member.photo.url} alt={member.photo.name} />
           <p>{member.isPresenting}</p>
         </div>
       ))}

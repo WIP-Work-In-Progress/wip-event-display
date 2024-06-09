@@ -32,4 +32,5 @@ export interface Member {
   githubUrl: string;
   linkedinUrl: string;
   isPresenting: boolean;
+  photo: Photo;
 }
