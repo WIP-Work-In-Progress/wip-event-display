@@ -19,6 +19,7 @@ const GetMembers = () => {
     <div>
       {members.map((member) => (
         <div key={member.id}>
+          <p>{member.order}</p>
           <h1>{member.name}</h1>
           <p>{member.lastName}</p>
           <p>{member.title}</p>

@@ -139,12 +139,13 @@ export const getRoadmapEvent = async (id: string) => {
 
 export const getMembers = async () => {
   const result: Member[] = [];
-  const q = query(usersRef);
+  const q = query(usersRef, orderBy("order"));
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
     const data = doc.data();
     const member: Member = {
       id: doc.id,
+      order: data.order,
       name: data.name,
       lastName: data.lastName,
       title: data.title,
@@ -168,6 +169,7 @@ export const getMember = async (id: string) => {
     const data = docSnap.data();
     const member: Member = {
       id: docSnap.id,
+      order: data.order,
       name: data.name,
       lastName: data.lastName,
       title: data.title,
