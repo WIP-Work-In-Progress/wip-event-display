@@ -2,7 +2,7 @@ import { getMembers } from "@/lib/firebase.utils";
 import { Member } from "@/types/types";
 import RepresentationCard from "@/features/representation-card";
 import { useState, useEffect } from "react";
-import "./representation.css"
+import "./representation.css";
 
 export default function RepresentationPage() {
   const [members, setMembers] = useState<Member[] | null>([]);
@@ -18,7 +18,7 @@ export default function RepresentationPage() {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 hexagon">
+    <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-6 gap-3 hexagons">
       {members.map((member) => (
         <div key={member.id}>
           <RepresentationCard member={member} />

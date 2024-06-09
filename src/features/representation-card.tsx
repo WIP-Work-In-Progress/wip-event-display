@@ -6,18 +6,18 @@ import "./representation-card.css";
 
 export default function RepresentationCard({ member }: { member: Member }) {
   return (
-    <Card className="Card">
+    <Card>
       <CardHeader>
         <CardTitle>
           {member.name} {member.lastName}
         </CardTitle>
       </CardHeader>
-      <CardContent className="CardContent">
-        <div className="flex flex-row gap-x-5 photo">
+      <CardContent>
+        <div className="flex flex-row gap-x-5">
           <img
-            src={"/example.png"}
-            alt="placeholder"
-            className="w-full h-full"
+            src={member.photo.url}
+            alt={member.photo.name}
+            className="w-full h-full aspect-square"
           />
           <div className="contact">
             <p>{member.title}</p>
