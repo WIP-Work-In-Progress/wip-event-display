@@ -151,6 +151,10 @@ export const getMembers = async () => {
       githubUrl: data.githubUrl,
       linkedinUrl: data.linkedinUrl,
       isPresenting: data.isPresenting,
+      photo: {
+        name: data.photo.name,
+        url: data.photo.url,
+      },
     };
     result.push(member);
   });
@@ -170,6 +174,10 @@ export const getMember = async (id: string) => {
       githubUrl: data.githubUrl,
       linkedinUrl: data.linkedinUrl,
       isPresenting: data.isPresenting,
+      photo: {
+        name: data.photo.name,
+        url: data.photo.url,
+      },
     };
     return member;
   } else {
