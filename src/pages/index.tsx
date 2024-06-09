@@ -6,7 +6,9 @@ import { Chrono } from "react-chrono";
 export default function IndexPage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const { presentationMode } = usePresentationModeContext();
-
+  const roadmapMode = window.matchMedia("(max-width: 768px)").matches
+    ? "VERTICAL"
+    : "HORIZONTAL";
   useEffect(() => {
     const interval = () =>
       presentationMode === PresentationMode.PRESENTING &&
@@ -76,14 +78,17 @@ export default function IndexPage() {
       },
     },
   ];
+
   return (
-    <>
-      <Chrono
-        items={items}
-        mode="HORIZONTAL"
-        activeItemIndex={activeIndex}
-        disableToolbar
-      />
-    </>
+    <div className="grid w-screen place-items-center">
+      <div>
+        <Chrono
+          items={items}
+          mode={roadmapMode}
+          activeItemIndex={activeIndex}
+          disableToolbar
+        />
+      </div>
+    </div>
   );
 }
