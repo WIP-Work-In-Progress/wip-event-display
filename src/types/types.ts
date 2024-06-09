@@ -26,10 +26,12 @@ export interface RoadmapEvent {
 
 export interface Member {
   id: string;
+  order: number;
   name: string;
   lastName: string;
   title: string;
   githubUrl: string;
   linkedinUrl: string;
   isPresenting: boolean;
+  photo: Photo;
 }
