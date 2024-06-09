@@ -2,6 +2,7 @@ import Github from "@/components/icons/github";
 import LinkedIn from "@/components/icons/linked-in";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Member } from "@/types/types";
+import "./representation-card.css";
 
 export default function RepresentationCard({ member }: { member: Member }) {
   return (
