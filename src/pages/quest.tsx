@@ -12,13 +12,13 @@ export default function QuestPage() {
 		<>
 			<div className="flex flex-col h-9/12">
 				<div>
-					<div className="flex justify-center items-center text-5xl h-48">
+					<div className="flex justify-center flex-col mr-auto ml-auto w-5/6 items-center text-lg sm:text-5xl h-48">
 						<div className="font-bold pr-4">WIP Quest: </div>
 						<div>Podejmij się wyzwania</div>
 					</div>
 				</div>
-				<div className="flex flex-wrap w-4/5 justify-center ml-auto mr-auto">
-					<Card className="bg-neutral-800 pd-16 m-2 rounded-lg shadow-md relative">
+				<div className="flex flex-wrap sm:w-4/5 justify-center ml-auto mr-auto">
+					<Card className="bg-neutral-800 w-full sm:h-48 m-2 rounded-lg rounded-br-2xl shadow-md relative">
 						<CardHeader>
 							<CardTitle>WIP Quest</CardTitle>
 							<CardDescription className="pt-4">
@@ -32,10 +32,10 @@ export default function QuestPage() {
 							<p>Zapraszamy na stoisko</p>
 						</CardFooter> */}
 					</Card>
-					<Card className="bg-neutral-800 pd-16 m-2 rounded-lg shadow-md relative">
+					<Card className="bg-neutral-800 w-full sm:h-48 m-2 rounded-lg shadow-md relative">
 						<CardHeader>
 							<CardTitle>Javascript</CardTitle>
-							<CardDescription>
+							<CardDescription className="pt-4">
 								Dodaj interaktywności do statycznej strony internetowej
 							</CardDescription>
 						</CardHeader>
@@ -46,10 +46,10 @@ export default function QuestPage() {
 							<p>Zapraszamy na stoisko</p>
 						</CardFooter> */}
 					</Card>
-					<Card className="bg-neutral-800 pd-16 m-2 rounded-lg shadow-md relative">
+					<Card className="bg-neutral-800 w-full sm:h-48 m-2 rounded-lg shadow-md relative">
 						<CardHeader>
 							<CardTitle>Gra platformowa</CardTitle>
-							<CardDescription>
+							<CardDescription className="pt-4">
 								Zaimplementuj mechaniki, aby ukończyć grę
 							</CardDescription>
 						</CardHeader>
@@ -60,10 +60,10 @@ export default function QuestPage() {
 							<p>Zapraszamy na stoisko</p>
 						</CardFooter> */}
 					</Card>
-					<Card className="bg-neutral-800 pd-16 m-2 rounded-lg shadow-md relative">
+					<Card className="bg-neutral-800 w-full sm:h-48 m-2 rounded-lg shadow-md relative">
 						<CardHeader>
 							<CardTitle>Popraw błąd</CardTitle>
-							<CardDescription>
+							<CardDescription className="pt-4">
 								Spróbuj swoich sił w pisaniu i naprawianiu kodu
 							</CardDescription>
 						</CardHeader>
@@ -74,10 +74,10 @@ export default function QuestPage() {
 							<p>Zapraszamy na stoisko</p>
 						</CardFooter> */}
 					</Card>
-					<Card className="bg-neutral-800 pd-16 m-2 rounded-lg shadow-md">
+					<Card className="bg-neutral-800 w-full sm:h-48 m-2 rounded-lg shadow-md">
 						<CardHeader>
 							<CardTitle>Dokończ grę, by zagrać</CardTitle>
-							<CardDescription>
+							<CardDescription className="pt-4">
 								Spróbuj swoich sił w pisaniu i naprawianiu kodu
 							</CardDescription>
 						</CardHeader>
