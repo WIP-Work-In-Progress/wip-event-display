@@ -6,20 +6,20 @@ import "./representation-card.css";
 
 export default function RepresentationCard({ member }: { member: Member }) {
   return (
-    <Card>
+    <Card className="Card">
       <CardHeader>
         <CardTitle>
           {member.name} {member.lastName}
         </CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="flex flex-row gap-x-3">
+      <CardContent className="CardContent">
+        <div className="flex flex-row gap-x-5 photo">
           <img
             src={"/example.png"}
             alt="placeholder"
             className="w-full h-full"
           />
-          <div>
+          <div className="contact">
             <p>{member.title}</p>
             <div className="py-2">
               <div className="flex flex-row gap-x-2">
