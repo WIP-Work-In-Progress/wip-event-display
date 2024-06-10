@@ -2,6 +2,7 @@ import Css from "@/components/icons/css";
 import Go from "@/components/icons/go";
 import Html from "@/components/icons/html";
 import Javascript from "@/components/icons/js";
+import { FaJava } from "react-icons/fa";
 import {
 	Card,
 	// CardContent,
@@ -108,6 +109,7 @@ export default function QuestPage() {
 						</CardContent> */}
 						<CardFooter className="absolute bottom-0 right-0">
 							<Go className="w-5 h-5 fill-green-500" />
+							<FaJava className="w-5 h-5" />
 						</CardFooter>
 					</Card>
 				</div>
