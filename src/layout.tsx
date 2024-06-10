@@ -1,4 +1,5 @@
 import Header from "@/components/core/header";
+import Footer from "./components/core/footer";
 import { ReactNode } from "react";
 
 interface GlobalLayoutProps {
@@ -10,6 +11,7 @@ export default function GlobalLayout({ children }: GlobalLayoutProps) {
     <div>
       <Header />
       <div className="mx-4">{children}</div>
+      <Footer />
     </div>
   );
 }
