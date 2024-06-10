@@ -1,8 +1,12 @@
+import Css from "@/components/icons/css";
+import Go from "@/components/icons/go";
+import Html from "@/components/icons/html";
+import Javascript from "@/components/icons/js";
 import {
 	Card,
 	// CardContent,
 	CardDescription,
-	// CardFooter,
+	CardFooter,
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
@@ -36,10 +40,11 @@ export default function QuestPage() {
 						</CardHeader>
 						{/* <CardContent>
 							<p>Witamy!</p>
-						</CardContent>
-						<CardFooter>
-							<p>Zapraszamy na stoisko</p>
-						</CardFooter> */}
+						</CardContent> */}
+						<CardFooter className="absolute bottom-0 right-0">
+							<Css className="w-5 h-5 fill-blue-500" />
+							<Html className="w-5 h-5 fill-red-500" />
+						</CardFooter>
 					</Card>
 					<Card className="bg-neutral-800 w-full sm:w-fit sm:h-48 m-2 rounded-lg shadow-md relative">
 						<CardHeader>
@@ -52,10 +57,10 @@ export default function QuestPage() {
 						</CardHeader>
 						{/* <CardContent>
 							<p>Witamy!</p>
-						</CardContent>
-						<CardFooter>
-							<p>Zapraszamy na stoisko</p>
-						</CardFooter> */}
+						</CardContent> */}
+						<CardFooter className="absolute bottom-0 right-0">
+							<Javascript className="w-5 h-5 fill-yellow-500" />
+						</CardFooter>
 					</Card>
 					<Card className="bg-neutral-800 w-full sm:w-fit sm:h-48 m-2 rounded-lg shadow-md relative">
 						<CardHeader>
@@ -89,7 +94,7 @@ export default function QuestPage() {
 							<p>Zapraszamy na stoisko</p>
 						</CardFooter> */}
 					</Card>
-					<Card className="bg-neutral-800 w-full sm:w-fit sm:h-48 m-2 rounded-lg shadow-md">
+					<Card className="bg-neutral-800 w-full sm:w-fit sm:h-48 m-2 rounded-lg shadow-md relative">
 						<CardHeader>
 							<CardTitle className="bg-clip-text text-transparent bg-gradient-to-b from-pink-900 to-blue-900">
 								Dokończ grę, by zagrać
@@ -100,10 +105,10 @@ export default function QuestPage() {
 						</CardHeader>
 						{/* <CardContent>
 							<p>Witamy!</p>
-						</CardContent>
-						<CardFooter>
-							<p>Zapraszamy na stoisko</p>
-						</CardFooter> */}
+						</CardContent> */}
+						<CardFooter className="absolute bottom-0 right-0">
+							<Go className="w-5 h-5 fill-green-500" />
+						</CardFooter>
 					</Card>
 				</div>
 			</div>
