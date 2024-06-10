@@ -15,21 +15,22 @@ export default function PresentationModeSwitch() {
   };
 
   return (
-    <div>
+    <div className="flex gap-4">
       <p>
-        {presentationMode === PresentationMode.PRESENTING
+        {/* {presentationMode === PresentationMode.PRESENTING
           ? "Turn off presentation mode?"
-          : "Turn on presentation mode?"}
+          : "Turn on presentation mode?"} */}
+          presentation mode:
       </p>
-      <div className="flex gap-2">
+      <div className="flex gap-3">
         <Switch
           onCheckedChange={togglePresentationMode}
           checked={presentationMode === PresentationMode.PRESENTING}
         />
         {presentationMode === PresentationMode.PRESENTING ? (
-          <p>🎥 Presentation mode is on!</p>
+          <p>🎥 ON!</p>
         ) : (
-          <p>🚫 Presentation mode is off.</p>
+          <p>🚫 OFF</p>
         )}
       </div>
     </div>
