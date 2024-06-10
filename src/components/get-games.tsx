@@ -42,9 +42,6 @@ const GetGames = () => {
 							</CardDescription>
 						</CardHeader>
 						<img src={game.previewPhoto.url} alt={game.previewPhoto.name} />
-						{/* {game.photos.map((photo, id) => {
-							return <img key={id} src={photo.url} alt={photo.name} />;
-						})} */}
 						<CardFooter>
 							{game.urls?.map((url, id) => {
 								return (
