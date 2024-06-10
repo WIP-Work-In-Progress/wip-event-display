@@ -30,7 +30,7 @@ export default function QuestPage() {
 					</div>
 				</div>
 				<div className="flex flex-wrap md:w-4/5 justify-center ml-auto mr-auto">
-					<Card className="bg-neutral-800 w-full md:w-fit md:h-48 m-2 rounded-lg rounded-br-2xl shadow-md relative">
+					<Card className="bg-neutral-800 w-full md:w-fit md:h-48 m-2 rounded-lg rounded-br-2xl shadow-md relative hover:bg-zinc-700 hover:shadow-md">
 						<CardHeader>
 							<CardTitle className="bg-clip-text text-transparent bg-gradient-to-b from-pink-900 to-blue-900">
 								WIP Quest
