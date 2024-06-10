@@ -1,3 +1,4 @@
+
 import { PresentationMode } from "@/features/presentation-mode/presentation-mode.enum";
 import { usePresentationModeContext } from "@/features/presentation-mode/use-presentation-mode.hook";
 import { useEffect, useState } from "react";
@@ -16,79 +17,31 @@ export default function IndexPage() {
     const id = setInterval(interval, 5000);
     return () => clearInterval(id);
   }, [activeIndex, presentationMode]);
-  const items = [
-    {
-      title: "May 1940",
-      cardTitle: "Dunkirk",
-      url: "http://www.history.com",
-      cardSubtitle:
-        "Men of the British Expeditionary Force (BEF) wade out to..",
-      cardDetailedText:
-        "Men of the British Expeditionary Force (BEF) wade out to..",
-      media: {
-        type: "IMAGE",
-        source: {
-          url: "http://someurl/image.jpg",
-        },
-      },
-    },
-    {
-      title: "May 1940",
-      cardTitle: "Dunkirk",
-      url: "http://www.history.com",
-      cardSubtitle:
-        "Men of the British Expeditionary Force (BEF) wade out to..",
-      cardDetailedText:
-        "Men of the British Expeditionary Force (BEF) wade out to..",
-      media: {
-        type: "IMAGE",
-        source: {
-          url: "http://someurl/image.jpg",
-        },
-      },
-    },
-    {
-      title: "May 1940",
-      cardTitle: "Dunkirk",
-      url: "http://www.history.com",
-      cardSubtitle:
-        "Men of the British Expeditionary Force (BEF) wade out to..",
-      cardDetailedText:
-        "Men of the British Expeditionary Force (BEF) wade out to..",
-      media: {
-        type: "IMAGE",
-        source: {
-          url: "http://someurl/image.jpg",
-        },
-      },
-    },
-    {
-      title: "May 1940",
-      cardTitle: "Dunkirk",
-      url: "http://www.history.com",
-      cardSubtitle:
-        "Men of the British Expeditionary Force (BEF) wade out to..",
-      cardDetailedText:
-        "Men of the British Expeditionary Force (BEF) wade out to..",
-      media: {
-        type: "IMAGE",
-        source: {
-          url: "http://someurl/image.jpg",
-        },
-      },
-    },
-  ];
+  const items = []; //TODO: Fill in
 
   return (
-    <div className="grid w-screen place-items-center">
-      <div>
+    <div className="flex justify-center">
+      <div className="grid w-3/5 place-items-center">
+
         <Chrono
           items={items}
           mode={roadmapMode}
           activeItemIndex={activeIndex}
           disableToolbar
+          theme={{
+            primary: "#343779",
+            secondary: "#F85E3F",
+            
+            cardBgColor: "#343779",
+            cardTitleColor: "#FFF",
+            cardSubtitleColor: "#FFF",
+            cardDetailsColor: "#FFF",
+
+            titleColor: "#972062",
+            titleColorActive: "#FFF",
+          }}
         />
-      </div>
+        </div>
     </div>
   );
 }
