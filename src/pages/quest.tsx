@@ -27,7 +27,7 @@ export default function QuestPage() {
 				<div className="flex flex-wrap sm:w-4/5 justify-center ml-auto mr-auto">
 					<Card className="bg-neutral-800 w-full sm:w-fit sm:h-48 m-2 rounded-lg rounded-br-2xl shadow-md relative">
 						<CardHeader>
-							<CardTitle className="bg-clip-text text-transparent bg-gradient-to-b from-blue-900 to-neutral-500">
+							<CardTitle className="bg-clip-text text-transparent bg-gradient-to-b from-pink-900 to-blue-900">
 								WIP Quest
 							</CardTitle>
 							<CardDescription className="pt-4">
@@ -43,7 +43,7 @@ export default function QuestPage() {
 					</Card>
 					<Card className="bg-neutral-800 w-full sm:w-fit sm:h-48 m-2 rounded-lg shadow-md relative">
 						<CardHeader>
-							<CardTitle className="bg-clip-text text-transparent bg-gradient-to-b from-blue-900 to-neutral-500">
+							<CardTitle className="bg-clip-text text-transparent bg-gradient-to-b from-pink-900 to-blue-900">
 								Javascript
 							</CardTitle>
 							<CardDescription className="pt-4">
@@ -59,7 +59,7 @@ export default function QuestPage() {
 					</Card>
 					<Card className="bg-neutral-800 w-full sm:w-fit sm:h-48 m-2 rounded-lg shadow-md relative">
 						<CardHeader>
-							<CardTitle className="bg-clip-text text-transparent bg-gradient-to-b from-blue-900 to-neutral-500">
+							<CardTitle className="bg-clip-text text-transparent bg-gradient-to-b from-pink-900 to-blue-900">
 								Gra platformowa
 							</CardTitle>
 							<CardDescription className="pt-4">
@@ -75,7 +75,7 @@ export default function QuestPage() {
 					</Card>
 					<Card className="bg-neutral-800 w-full sm:w-fit sm:h-48 m-2 rounded-lg shadow-md relative">
 						<CardHeader>
-							<CardTitle className="bg-clip-text text-transparent bg-gradient-to-b from-blue-900 to-neutral-500">
+							<CardTitle className="bg-clip-text text-transparent bg-gradient-to-b from-pink-900 to-blue-900">
 								Popraw błąd
 							</CardTitle>
 							<CardDescription className="pt-4">
@@ -91,7 +91,7 @@ export default function QuestPage() {
 					</Card>
 					<Card className="bg-neutral-800 w-full sm:w-fit sm:h-48 m-2 rounded-lg shadow-md">
 						<CardHeader>
-							<CardTitle className="bg-clip-text text-transparent bg-gradient-to-b from-blue-900 to-neutral-500">
+							<CardTitle className="bg-clip-text text-transparent bg-gradient-to-b from-pink-900 to-blue-900">
 								Dokończ grę, by zagrać
 							</CardTitle>
 							<CardDescription className="pt-4">
