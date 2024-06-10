@@ -59,22 +59,6 @@ const GetGames = () => {
 			})}
 		</div>
 	);
-	// <Card className="bg-neutral-800 w-full sm:w-fit sm:h-48 m-2 rounded-lg rounded-br-2xl shadow-md relative">
-	// // 					<CardHeader>
-	// // 						<CardTitle className="bg-clip-text text-transparent bg-gradient-to-b from-blue-900 to-neutral-500">
-	// // 							WIP Quest
-	// // 						</CardTitle>
-	// // 						<CardDescription className="pt-4">
-	// // 							Odtwórz stronę w HTML i CSS ze zdjęcia
-	// // 						</CardDescription>
-	// // 					</CardHeader>
-	// // 					{/* <CardContent>
-	// // 						<p>Witamy!</p>
-	// // 					</CardContent>
-	// // 					<CardFooter>
-	// // 						<p>Zapraszamy na stoisko</p>
-	// // 					</CardFooter> */}
-	// // 				</Card>
 };
 
 export default GetGames;
