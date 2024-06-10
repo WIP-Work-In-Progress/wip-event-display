@@ -9,7 +9,7 @@ export default function GlobalLayout({ children }: GlobalLayoutProps) {
   return (
     <div>
       <Header />
-      {children}
+      <div className="mx-4">{children}</div>
     </div>
   );
 }
