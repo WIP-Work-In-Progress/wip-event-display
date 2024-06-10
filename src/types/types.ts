@@ -1,3 +1,5 @@
+import { DynamicIconType } from "@/features/dynamic-icon/icon.enum";
+
 export interface Photo {
   name: string;
   url: string;
@@ -10,6 +12,7 @@ export interface Game {
   previewPhoto: Photo;
   photos: Photo[];
   urls?: string[];
+  icons: DynamicIconType[];
 }
 
 export interface RoadmapEvent {

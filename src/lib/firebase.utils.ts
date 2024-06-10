@@ -37,6 +37,7 @@ export const getGames = async () => {
       urls: data.urls.map((url: string) => {
         return url;
       }),
+      icons: data.icons,
     };
     result.push(game);
   });
@@ -66,6 +67,7 @@ export const getGame = async (id: string) => {
       urls: data.url.map((url: string) => {
         return url;
       }),
+      icons: data.icons,
     };
     return game;
   } else {

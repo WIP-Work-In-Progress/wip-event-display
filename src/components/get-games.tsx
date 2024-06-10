@@ -1,5 +1,6 @@
 // EXAMPLE
 
+import DynamicIcon from "@/features/dynamic-icon/dynamic-icon";
 import { getGames } from "@/lib/firebase.utils";
 import { Game } from "@/types/types";
 import { useEffect, useState } from "react";
@@ -37,6 +38,9 @@ const GetGames = () => {
                 </a>
               );
             })}
+            {game.icons.map((icon, id) => (
+              <DynamicIcon key={id} icon={icon} />
+            ))}
           </div>
         );
       })}
