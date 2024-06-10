@@ -28,8 +28,8 @@ export default function QuestPage() {
 						<div>Podejmij się wyzwania</div>
 					</div>
 				</div>
-				<div className="flex flex-wrap sm:w-4/5 justify-center ml-auto mr-auto">
-					<Card className="bg-neutral-800 w-full sm:w-fit sm:h-48 m-2 rounded-lg rounded-br-2xl shadow-md relative">
+				<div className="flex flex-wrap md:w-4/5 justify-center ml-auto mr-auto">
+					<Card className="bg-neutral-800 w-full md:w-fit md:h-48 m-2 rounded-lg rounded-br-2xl shadow-md relative">
 						<CardHeader>
 							<CardTitle className="bg-clip-text text-transparent bg-gradient-to-b from-pink-900 to-blue-900">
 								WIP Quest
@@ -46,7 +46,7 @@ export default function QuestPage() {
 							<Html className="w-5 h-5 fill-red-500" />
 						</CardFooter>
 					</Card>
-					<Card className="bg-neutral-800 w-full sm:w-fit sm:h-48 m-2 rounded-lg shadow-md relative">
+					<Card className="bg-neutral-800 w-full md:w-fit md:h-48 m-2 rounded-lg shadow-md relative">
 						<CardHeader>
 							<CardTitle className="bg-clip-text text-transparent bg-gradient-to-b from-pink-900 to-blue-900">
 								Javascript
@@ -62,7 +62,7 @@ export default function QuestPage() {
 							<Javascript className="w-5 h-5 fill-yellow-500" />
 						</CardFooter>
 					</Card>
-					<Card className="bg-neutral-800 w-full sm:w-fit sm:h-48 m-2 rounded-lg shadow-md relative">
+					<Card className="bg-neutral-800 w-full md:w-fit md:h-48 m-2 rounded-lg shadow-md relative">
 						<CardHeader>
 							<CardTitle className="bg-clip-text text-transparent bg-gradient-to-b from-pink-900 to-blue-900">
 								Gra platformowa
@@ -78,7 +78,7 @@ export default function QuestPage() {
 							<p>Zapraszamy na stoisko</p>
 						</CardFooter> */}
 					</Card>
-					<Card className="bg-neutral-800 w-full sm:w-fit sm:h-48 m-2 rounded-lg shadow-md relative">
+					<Card className="bg-neutral-800 w-full md:w-fit md:h-48 m-2 rounded-lg shadow-md relative">
 						<CardHeader>
 							<CardTitle className="bg-clip-text text-transparent bg-gradient-to-b from-pink-900 to-blue-900">
 								Popraw błąd
@@ -94,7 +94,7 @@ export default function QuestPage() {
 							<p>Zapraszamy na stoisko</p>
 						</CardFooter> */}
 					</Card>
-					<Card className="bg-neutral-800 w-full sm:w-fit sm:h-48 m-2 rounded-lg shadow-md relative">
+					<Card className="bg-neutral-800 w-full md:w-fit md:h-48 m-2 rounded-lg shadow-md relative">
 						<CardHeader>
 							<CardTitle className="bg-clip-text text-transparent bg-gradient-to-b from-pink-900 to-blue-900">
 								Dokończ grę, by zagrać
