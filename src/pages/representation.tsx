@@ -18,11 +18,9 @@ export default function RepresentationPage() {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-6 gap-3 hexagons">
+    <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-6 2xl:mx-40 gap-3 hexagons">
       {members.map((member) => (
-        <div key={member.id}>
-          <RepresentationCard member={member} />
-        </div>
+        <RepresentationCard key={member.id} member={member} />
       ))}
     </div>
   );

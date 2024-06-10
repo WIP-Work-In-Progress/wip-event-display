@@ -1,0 +1,12 @@
+.bottom-gradient {
+  position: relative;
+  border-bottom: 4px solid transparent;
+  background-image: linear-gradient(
+    to right,
+    hsl(var(--primary-800)),
+    hsl(var(--secondary-800))
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: bottom;
+}

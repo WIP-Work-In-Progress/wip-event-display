@@ -6,10 +6,12 @@ import "./representation-card.css";
 
 export default function RepresentationCard({ member }: { member: Member }) {
   return (
-    <Card>
+    <Card className="min-h-60 flex-1">
       <CardHeader>
         <CardTitle>
-          {member.name} {member.lastName}
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-secondary-400 to-accent-600">
+            {member.name} {member.lastName}
+          </span>
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -17,19 +19,25 @@ export default function RepresentationCard({ member }: { member: Member }) {
           <img
             src={member.photo.url}
             alt={member.photo.name}
-            className="w-full h-full aspect-square"
+            className="h-full max-w-40 aspect-square object-cover"
           />
-          <div className="contact">
-            <p>{member.title}</p>
-            <div className="py-2">
-              <div className="flex flex-row gap-x-2">
-                <Github className="max-w-6" />
-                <a href={member.githubUrl}>{member.githubUrl}</a>
-              </div>
-              <div className="flex flex-row gap-x-2">
-                <LinkedIn className="max-w-6" />
-                <a href={member.linkedinUrl}>{member.linkedinUrl}</a>
-              </div>
+          <div className="flex-1 flex flex-col justify-between">
+            <p className="text-center pb-1 bottom-gradient">{member.title}</p>
+            <div className="py-2 flex justify-around gap-6 icons-container">
+              <a
+                href={member.githubUrl}
+                target="_blank"
+                className="flex-1 max-w-24"
+              >
+                <Github className="hover:fill-primary-400" />
+              </a>
+              <a
+                href={member.linkedinUrl}
+                target="_blank"
+                className="flex-1 max-w-24"
+              >
+                <LinkedIn className="hover:fill-primary-400" />
+              </a>
             </div>
           </div>
         </div>
