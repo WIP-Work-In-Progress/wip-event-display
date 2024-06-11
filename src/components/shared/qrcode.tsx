@@ -5,10 +5,12 @@ import { useEffect, useState } from "react";
 
 const QRCodeDisplay = ({
   url,
+  className,
   overrideSwitch = false,
 }: {
   url: string;
   overrideSwitch?: boolean;
+  className?: string;
 }) => {
   const { presentationMode } = usePresentationModeContext();
   const [qrCode, setQRCode] = useState<string | null>(null);
@@ -22,7 +24,11 @@ const QRCodeDisplay = ({
     });
   }, [url]);
   return presentationMode === PresentationMode.PRESENTING || overrideSwitch ? (
-    <div className="w-12">{qrCode && <img src={qrCode} alt={`QR code for ${url}`} />}</div>
+    <div className={`w-12 ${className}`}>
+      {qrCode && (
+        <img src={qrCode} alt={`QR code for ${url}`} className="rounded" />
+      )}
+    </div>
   ) : (
     <div>
       <a href={url}>{url}</a>
