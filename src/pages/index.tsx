@@ -5,7 +5,9 @@ import { Member } from "@/types/types";
 import { useEffect, useState } from "react";
 import { Chrono } from "react-chrono";
 import RepresentationCard from "@/features/representation-card";
-// import RepresentationCard from
+import QRCodeDisplay from "@/components/shared/qrcode";
+import { FaFacebook } from "react-icons/fa";
+import { BsInstagram } from "react-icons/bs";
 
 export default function IndexPage() {
 	const [activeIndex, setActiveIndex] = useState(0);
@@ -133,30 +135,61 @@ export default function IndexPage() {
 
 	return (
 		<div className="flex flex-col justify-center">
-			<div className="flex w-3/5 place-items-center">
-				<Chrono
-					items={items}
-					mode={roadmapMode}
-					activeItemIndex={activeIndex}
-					disableToolbar
-					theme={{
-						primary: "#343779",
-						secondary: "#F85E3F",
-
-						cardBgColor: "#343779",
-						cardTitleColor: "#FFF",
-						cardSubtitleColor: "#FFF",
-						cardDetailsColor: "#FFF",
-
-						titleColor: "#972062",
-						titleColorActive: "#FFF",
-					}}
-				/>
-			</div>
 			<div className="flex">
-				{members.map((member) => (
-					<RepresentationCard key={member.id} member={member} />
-				))}
+				<div className="flex flex-col justify-center w-1/5">
+					{presentationMode === PresentationMode.PRESENTING && (
+						<div className="mr-auto ml-auto">
+							<div className="flex justify-center h-20">
+								<FaFacebook className="w-12 h-12 fill-blue-500" />
+							</div>
+							<QRCodeDisplay
+								url={"https://www.facebook.com/profile.php?id=61556930777284"}
+							/>
+						</div>
+					)}
+				</div>
+				<div className="flex w-3/5 place-items-center">
+					<Chrono
+						items={items}
+						mode={roadmapMode}
+						activeItemIndex={activeIndex}
+						disableToolbar
+						theme={{
+							primary: "#343779",
+							secondary: "#F85E3F",
+
+							cardBgColor: "#343779",
+							cardTitleColor: "#FFF",
+							cardSubtitleColor: "#FFF",
+							cardDetailsColor: "#FFF",
+
+							titleColor: "#972062",
+							titleColorActive: "#FFF",
+						}}
+					/>
+				</div>
+				<div className="flex flex-col justify-center w-1/5">
+					{presentationMode === PresentationMode.PRESENTING && (
+						<div className="mr-auto ml-auto">
+							<QRCodeDisplay
+								url={
+									"https://www.instagram.com/wip_ug?igsh=anY4dTlsbHNyc3R4&utm_source=qr"
+								}
+							/>
+							<div className="flex justify-center h-20">
+								<BsInstagram className="w-12 h-12 fill-pink-800 self-end" />
+							</div>
+						</div>
+					)}
+				</div>
+			</div>
+			<div className="flex gap-10">
+				{members.map(
+					(member) =>
+						member.isPresenting && (
+							<RepresentationCard key={member.id} member={member} />
+						)
+				)}
 			</div>
 		</div>
 	);
