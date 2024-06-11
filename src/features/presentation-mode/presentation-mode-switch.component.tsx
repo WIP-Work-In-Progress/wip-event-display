@@ -10,7 +10,7 @@ export default function PresentationModeSwitch() {
     setPresentationMode(
       presentationMode === PresentationMode.PRESENTING
         ? PresentationMode.NOT_PRESENTING
-        : PresentationMode.PRESENTING
+        : PresentationMode.PRESENTING,
     );
   };
 
@@ -20,9 +20,9 @@ export default function PresentationModeSwitch() {
         {/* {presentationMode === PresentationMode.PRESENTING
           ? "Turn off presentation mode?"
           : "Turn on presentation mode?"} */}
-          presentation mode:
+        presentation mode:
       </p>
-      <div className="flex gap-3">
+      <div className="flex items-center gap-3">
         <Switch
           onCheckedChange={togglePresentationMode}
           checked={presentationMode === PresentationMode.PRESENTING}
