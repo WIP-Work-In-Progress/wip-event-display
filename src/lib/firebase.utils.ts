@@ -64,7 +64,7 @@ export const getGame = async (id: string) => {
           url: photo.url,
         };
       }),
-      urls: data.url.map((url: string) => {
+      urls: data.urls.map((url: string) => {
         return url;
       }),
       icons: data.icons,
