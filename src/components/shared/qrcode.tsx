@@ -22,7 +22,7 @@ const QRCodeDisplay = ({
     });
   }, [url]);
   return presentationMode === PresentationMode.PRESENTING || overrideSwitch ? (
-    <div>{qrCode && <img src={qrCode} alt={`QR code for ${url}`} />}</div>
+    <div className="w-12">{qrCode && <img src={qrCode} alt={`QR code for ${url}`} />}</div>
   ) : (
     <div>
       <a href={url}>{url}</a>
