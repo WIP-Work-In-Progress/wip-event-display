@@ -22,19 +22,13 @@ const GetRoadmap = () => {
     <div>
       {roadmap.map((event) => (
         <div key={event.id}>
-          <h1>{event.name}</h1>
-          <p>{event.startDate.toLocaleDateString()}</p>
-          <p>{event.endDate.toDateString()}</p>
-          <p>{event.description}</p>
-          <p>{event.shortDescription}</p>
-          {event.urls?.map((url, id) => (
-            <a href={url} key={id}>
-              {url}{" "}
-            </a>
-          ))}
-          {event.photos?.map((photo, id) => (
-            <img width="300" src={photo.url} key={id} />
-          ))}
+          <h1>{event.title}</h1>
+          <p>{event.date.toLocaleDateString()}</p>
+          <p>{event.cardTitle}</p>
+          <p>{event.cardSubtitle}</p>
+          <p>{event.cardDetailedText}</p>
+          <p>{event.url}</p>
+          <img src={event.media.source.url} />
           {event.contributingMembers.map((member, id) => {
             return <div key={id}> {member} </div>;
           })}
