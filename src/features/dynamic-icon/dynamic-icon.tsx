@@ -1,15 +1,22 @@
-import { DynamicIconType } from "./icon.enum";
+import {DynamicIconType} from "./icon.enum";
+import Javascript from "@/components/icons/js.tsx";
+import Python from "@/components/icons/python.tsx";
+import Godot from "@/components/icons/godot.tsx";
+import Csharp from "@/components/icons/csharp.tsx";
+import {FaJava} from "react-icons/fa";
 
 const DynamicIcon = ({ icon }: { icon: DynamicIconType }) => {
   switch (icon) {
     case DynamicIconType.JAVASCRIPT:
-      return <div>JS icon</div>;
+      return <Javascript />;
     case DynamicIconType.PYTHON:
-      return <div>Python icon</div>;
+      return <Python />
     case DynamicIconType.JAVA:
-      return <div>Java icon</div>;
+      return <FaJava />;
     case DynamicIconType.GODOT:
-      return <div>Godot icon</div>;
+      return <Godot />;
+    case DynamicIconType.CSHARP:
+      return <Csharp />
     default:
       break;
   }
