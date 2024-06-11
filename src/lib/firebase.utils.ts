@@ -37,6 +37,7 @@ export const getGames = async () => {
       urls: data.urls.map((url: string) => {
         return url;
       }),
+      icons: data.icons,
     };
     result.push(game);
   });
@@ -63,9 +64,10 @@ export const getGame = async (id: string) => {
           url: photo.url,
         };
       }),
-      urls: data.url.map((url: string) => {
+      urls: data.urls.map((url: string) => {
         return url;
       }),
+      icons: data.icons,
     };
     return game;
   } else {
@@ -82,20 +84,18 @@ export const getRoadmap = async () => {
     const data = doc.data();
     const event: RoadmapEvent = {
       id: doc.id,
-      startDate: data.startDate.toDate(),
-      endDate: data.endDate.toDate(),
-      name: data.name,
-      shortDescription: data.shortDescription,
-      description: data.description,
-      urls: data.urls.map((url: string) => {
-        return url;
-      }),
-      photos: data.photos.map((photo: Photo) => {
-        return {
-          name: photo.name,
-          url: photo.url,
-        };
-      }),
+      title: data.title,
+      cardTitle: data.cardTitle,
+      cardSubtitle: data.cardSubtitle,
+      cardDetailedText: data.cardDetailedText,
+      url: data.url,
+      date: data.date,
+      media: {
+        type: data.media.type,
+        source: {
+          url: data.media.source.url,
+        },
+      },
       contributingMembers: data.contributingMembers.map((member: string) => {
         return member;
       }),
@@ -112,20 +112,18 @@ export const getRoadmapEvent = async (id: string) => {
     const data = docSnap.data();
     const roadMapEvent: RoadmapEvent = {
       id: docSnap.id,
-      startDate: data.startDate.toDate(),
-      endDate: data.endDate.toDate(),
-      name: data.name,
-      shortDescription: data.shortDescription,
-      description: data.description,
-      urls: data.urls.map((url: string) => {
-        return url;
-      }),
-      photos: data.photos.map((photo: Photo) => {
-        return {
-          name: photo.name,
-          url: photo.url,
-        };
-      }),
+      title: data.title,
+      cardTitle: data.cardTitle,
+      cardSubtitle: data.cardSubtitle,
+      cardDetailedText: data.cardDetailedText,
+      url: data.url,
+      date: data.date,
+      media: {
+        type: data.media.type,
+        source: {
+          url: data.media.source.url,
+        },
+      },
       contributingMembers: data.contributingMembers.map((member: string) => {
         return member;
       }),
@@ -139,18 +137,23 @@ export const getRoadmapEvent = async (id: string) => {
 
 export const getMembers = async () => {
   const result: Member[] = [];
-  const q = query(usersRef);
+  const q = query(usersRef, orderBy("order"));
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
     const data = doc.data();
     const member: Member = {
       id: doc.id,
+      order: data.order,
       name: data.name,
       lastName: data.lastName,
       title: data.title,
       githubUrl: data.githubUrl,
       linkedinUrl: data.linkedinUrl,
       isPresenting: data.isPresenting,
+      photo: {
+        name: data.photo.name,
+        url: data.photo.url,
+      },
     };
     result.push(member);
   });
@@ -164,12 +167,17 @@ export const getMember = async (id: string) => {
     const data = docSnap.data();
     const member: Member = {
       id: docSnap.id,
+      order: data.order,
       name: data.name,
       lastName: data.lastName,
       title: data.title,
       githubUrl: data.githubUrl,
       linkedinUrl: data.linkedinUrl,
       isPresenting: data.isPresenting,
+      photo: {
+        name: data.photo.name,
+        url: data.photo.url,
+      },
     };
     return member;
   } else {

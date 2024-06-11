@@ -12,8 +12,9 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as RepresentationImport } from './routes/representation'
-import { Route as QuestImport } from './routes/quest'
 import { Route as IndexImport } from './routes/index'
+import { Route as QuestIndexImport } from './routes/quest/index'
+import { Route as QuestIdImport } from './routes/quest/$id'
 
 // Create/Update Routes
 
@@ -22,13 +23,18 @@ const RepresentationRoute = RepresentationImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const QuestRoute = QuestImport.update({
-  path: '/quest',
+const IndexRoute = IndexImport.update({
+  path: '/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const IndexRoute = IndexImport.update({
-  path: '/',
+const QuestIndexRoute = QuestIndexImport.update({
+  path: '/quest/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const QuestIdRoute = QuestIdImport.update({
+  path: '/quest/$id',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -43,18 +49,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/quest': {
-      id: '/quest'
-      path: '/quest'
-      fullPath: '/quest'
-      preLoaderRoute: typeof QuestImport
-      parentRoute: typeof rootRoute
-    }
     '/representation': {
       id: '/representation'
       path: '/representation'
       fullPath: '/representation'
       preLoaderRoute: typeof RepresentationImport
+      parentRoute: typeof rootRoute
+    }
+    '/quest/$id': {
+      id: '/quest/$id'
+      path: '/quest/$id'
+      fullPath: '/quest/$id'
+      preLoaderRoute: typeof QuestIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/quest/': {
+      id: '/quest/'
+      path: '/quest'
+      fullPath: '/quest'
+      preLoaderRoute: typeof QuestIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -64,8 +77,9 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren({
   IndexRoute,
-  QuestRoute,
   RepresentationRoute,
+  QuestIdRoute,
+  QuestIndexRoute,
 })
 
 /* prettier-ignore-end */
@@ -77,18 +91,22 @@ export const routeTree = rootRoute.addChildren({
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/quest",
-        "/representation"
+        "/representation",
+        "/quest/$id",
+        "/quest/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
-    "/quest": {
-      "filePath": "quest.tsx"
-    },
     "/representation": {
       "filePath": "representation.tsx"
+    },
+    "/quest/$id": {
+      "filePath": "quest/$id.tsx"
+    },
+    "/quest/": {
+      "filePath": "quest/index.tsx"
     }
   }
 }
