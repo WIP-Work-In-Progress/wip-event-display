@@ -48,7 +48,12 @@ export default function RepresentationCard({ member }: { member: Member }) {
 									</a>
 								)}
 							{presentationMode === PresentationMode.PRESENTING &&
-								member.githubUrl && <QRCodeDisplay url={member.githubUrl} />}
+								member.githubUrl && (
+									<div className="flex justify-center gap-4">
+										<QRCodeDisplay url={member.githubUrl} />
+										<Github className="hover:fill-primary-400 active:fill-primary-600 w-10 h-10 self-center" />
+									</div>
+								)}
 							{presentationMode === PresentationMode.NOT_PRESENTING &&
 								member.linkedinUrl && (
 									<a
@@ -61,7 +66,10 @@ export default function RepresentationCard({ member }: { member: Member }) {
 								)}
 							{presentationMode === PresentationMode.PRESENTING &&
 								member.linkedinUrl && (
-									<QRCodeDisplay url={member.linkedinUrl} />
+									<div className="flex gap-4">
+										<LinkedIn className="hover:fill-primary-400 active:fill-primary-600 w-10 h-10 self-center" />
+										<QRCodeDisplay url={member.linkedinUrl} />
+									</div>
 								)}
 						</div>
 					</div>
