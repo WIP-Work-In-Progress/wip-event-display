@@ -3,4 +3,5 @@ export enum DynamicIconType {
   PYTHON = "PYTHON",
   JAVA = "JAVA",
   GODOT = "GODOT",
+  CSHARP = "CSHARP",
 }

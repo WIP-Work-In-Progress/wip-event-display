@@ -1,4 +1,10 @@
 import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+} from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import {
   Card,
   CardContent,
   CardDescription,
@@ -13,10 +19,13 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Input } from "@/components/ui/input";
 import { getGame } from "@/lib/firebase.utils";
 import { Route } from "@/routes/quest/$id";
 import { Game } from "@/types/types";
-import { useEffect, useState } from "react";
+import { AccordionTrigger } from "@radix-ui/react-accordion";
+import { redirect, useRouter } from "@tanstack/react-router";
+import { FormEvent, useEffect, useState } from "react";
 
 const QuestDetailsPage = () => {
   const { id } = Route.useParams();
@@ -29,10 +38,8 @@ const QuestDetailsPage = () => {
     <div className="grid place-items-center">
       <Card className="max-w-screen-lg border-4">
         <CardHeader className="grid place-items-center">
-          <CardTitle>
-            <h1 className="text-6xl tracking-wider">
-              {quest.name.toUpperCase()}
-            </h1>
+          <CardTitle className="text-3xl md:text-6xl tracking-wider">
+            {quest.name.toUpperCase()}
           </CardTitle>
           <CardDescription>{quest.shortDescription}</CardDescription>
         </CardHeader>
@@ -56,11 +63,71 @@ const QuestDetailsPage = () => {
               <CarouselPrevious />
             </Carousel>
           </div>
+          {quest.name === "CTF Javascript Edition" && <JsQuest />}
         </CardContent>
         <CardFooter></CardFooter>
       </Card>
     </div>
   );
 };
+
+function JsQuest() {
+  const [url, setUrl] = useState("");
+  const router = useRouter();
+  const redirectToSubpage = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    router.navigate({
+      to: "/q/" + url,
+    });
+  };
+
+  return (
+    <div>
+      <Accordion type="single" collapsible className="w-full">
+        <AccordionItem value="item-1">
+          <AccordionTrigger>Solution for quest #1</AccordionTrigger>
+          <AccordionContent>
+            {"flag{c4n_y0u_f1nd_4ll_s3cr3ts}"}
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="item-2">
+          <AccordionTrigger>Solution for quest #2</AccordionTrigger>
+          <AccordionContent>{"flag{10011010001011111}"}</AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="item-3">
+          <AccordionTrigger>Solution for quest #3</AccordionTrigger>
+          <AccordionContent>
+            {"flag{13,Jura_jnf_gur_fgnghgr_bs_gur_pyho_fhozvggrq}"}
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="item-4">
+          <AccordionTrigger>Solution for quest #4</AccordionTrigger>
+          <AccordionContent>{"flag{10100110110111000}"}</AccordionContent>
+        </AccordionItem>
+      </Accordion>
+      <form
+        onSubmit={(e) => redirectToSubpage(e)}
+        className="p-5 grid place-items-center"
+      >
+        <div className="flex flex-col gap-3 w-3/6">
+          <Input
+            type="text"
+            name="url"
+            value={url}
+            placeholder="00000"
+            onChange={(e) => setUrl(e.target.value)}
+          />
+          <div className="grid place-items-center">
+            <Input
+              className="md:w-3/6 cursor-pointer"
+              type="submit"
+              value="Submit decoded secret"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+  );
+}
 
 export default QuestDetailsPage;

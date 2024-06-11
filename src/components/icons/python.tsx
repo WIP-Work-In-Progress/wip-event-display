@@ -1,6 +1,6 @@
 import { IconProps } from "@/models/icon-properties.model";
 
-export default function Javascript({ fill, className }: IconProps) {
+export default function Python({ fill, className }: IconProps) {
 	const iconFill = fill || "white";
 
 	return (

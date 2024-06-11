@@ -15,6 +15,8 @@ import { Route as RepresentationImport } from './routes/representation'
 import { Route as IndexImport } from './routes/index'
 import { Route as QuestIndexImport } from './routes/quest/index'
 import { Route as QuestIdImport } from './routes/quest/$id'
+import { Route as Q85432Import } from './routes/q/85432'
+import { Route as Q78943Import } from './routes/q/78943'
 
 // Create/Update Routes
 
@@ -38,6 +40,16 @@ const QuestIdRoute = QuestIdImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const Q85432Route = Q85432Import.update({
+  path: '/q/85432',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const Q78943Route = Q78943Import.update({
+  path: '/q/78943',
+  getParentRoute: () => rootRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -54,6 +66,20 @@ declare module '@tanstack/react-router' {
       path: '/representation'
       fullPath: '/representation'
       preLoaderRoute: typeof RepresentationImport
+      parentRoute: typeof rootRoute
+    }
+    '/q/78943': {
+      id: '/q/78943'
+      path: '/q/78943'
+      fullPath: '/q/78943'
+      preLoaderRoute: typeof Q78943Import
+      parentRoute: typeof rootRoute
+    }
+    '/q/85432': {
+      id: '/q/85432'
+      path: '/q/85432'
+      fullPath: '/q/85432'
+      preLoaderRoute: typeof Q85432Import
       parentRoute: typeof rootRoute
     }
     '/quest/$id': {
@@ -78,6 +104,8 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren({
   IndexRoute,
   RepresentationRoute,
+  Q78943Route,
+  Q85432Route,
   QuestIdRoute,
   QuestIndexRoute,
 })
@@ -92,6 +120,8 @@ export const routeTree = rootRoute.addChildren({
       "children": [
         "/",
         "/representation",
+        "/q/78943",
+        "/q/85432",
         "/quest/$id",
         "/quest/"
       ]
@@ -101,6 +131,12 @@ export const routeTree = rootRoute.addChildren({
     },
     "/representation": {
       "filePath": "representation.tsx"
+    },
+    "/q/78943": {
+      "filePath": "q/78943.tsx"
+    },
+    "/q/85432": {
+      "filePath": "q/85432.tsx"
     },
     "/quest/$id": {
       "filePath": "quest/$id.tsx"
