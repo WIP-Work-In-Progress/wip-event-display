@@ -84,20 +84,18 @@ export const getRoadmap = async () => {
     const data = doc.data();
     const event: RoadmapEvent = {
       id: doc.id,
-      startDate: data.startDate.toDate(),
-      endDate: data.endDate.toDate(),
-      name: data.name,
-      shortDescription: data.shortDescription,
-      description: data.description,
-      urls: data.urls.map((url: string) => {
-        return url;
-      }),
-      photos: data.photos.map((photo: Photo) => {
-        return {
-          name: photo.name,
-          url: photo.url,
-        };
-      }),
+      title: data.title,
+      cardTitle: data.cardTitle,
+      cardSubtitle: data.cardSubtitle,
+      cardDetailedText: data.cardDetailedText,
+      url: data.url,
+      date: data.date,
+      media: {
+        type: data.media.type,
+        source: {
+          url: data.media.source.url,
+        },
+      },
       contributingMembers: data.contributingMembers.map((member: string) => {
         return member;
       }),
@@ -114,20 +112,18 @@ export const getRoadmapEvent = async (id: string) => {
     const data = docSnap.data();
     const roadMapEvent: RoadmapEvent = {
       id: docSnap.id,
-      startDate: data.startDate.toDate(),
-      endDate: data.endDate.toDate(),
-      name: data.name,
-      shortDescription: data.shortDescription,
-      description: data.description,
-      urls: data.urls.map((url: string) => {
-        return url;
-      }),
-      photos: data.photos.map((photo: Photo) => {
-        return {
-          name: photo.name,
-          url: photo.url,
-        };
-      }),
+      title: data.title,
+      cardTitle: data.cardTitle,
+      cardSubtitle: data.cardSubtitle,
+      cardDetailedText: data.cardDetailedText,
+      url: data.url,
+      date: data.date,
+      media: {
+        type: data.media.type,
+        source: {
+          url: data.media.source.url,
+        },
+      },
       contributingMembers: data.contributingMembers.map((member: string) => {
         return member;
       }),

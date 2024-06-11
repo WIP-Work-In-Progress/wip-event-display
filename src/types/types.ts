@@ -17,13 +17,18 @@ export interface Game {
 
 export interface RoadmapEvent {
   id: string;
-  startDate: Date;
-  endDate: Date;
-  name: string;
-  shortDescription: string;
-  description: string;
-  urls?: string[];
-  photos?: Photo[];
+  title: string;
+  cardTitle: string;
+  cardSubtitle: string;
+  cardDetailedText: string;
+  url: string;
+  date: Date;
+  media: {
+    type: "IMAGE" | "VIDEO";
+    source: {
+      url: string;
+    };
+  };
   contributingMembers: string[];
 }
 
