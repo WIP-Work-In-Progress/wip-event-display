@@ -29,7 +29,7 @@ export default function QuestPage() {
         <div>
           <div className="flex justify-center flex-col mr-auto ml-auto w-5/6 items-center text-lg sm:text-5xl h-48">
             <div className="font-bold pr-4">WIP Quest: </div>
-            <div>Podejmij się wyzwania</div>
+            <div>Take on the challenge</div>
           </div>
         </div>
         <div className="flex flex-wrap md:w-4/5 justify-center ml-auto mr-auto">

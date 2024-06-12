@@ -30,7 +30,7 @@ export default function IndexPage() {
     const interval = () =>
       presentationMode === PresentationMode.PRESENTING &&
       setActiveIndex((activeIndex + 1) % (roadmap?.length || 10));
-    const id = setInterval(interval, 5000);
+    const id = setInterval(interval, 10000);
     return () => clearInterval(id);
   }, [activeIndex, presentationMode]);
 
