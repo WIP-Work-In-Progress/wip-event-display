@@ -4,26 +4,18 @@ import DynamicIcon from "@/features/dynamic-icon/dynamic-icon";
 import { getGames } from "@/lib/firebase.utils";
 import { Game } from "@/types/types";
 import { useEffect, useState } from "react";
-import {
-	Card,
-	CardHeader,
-	CardTitle,
-	CardDescription,
-	CardFooter,
-} from "@/components/ui/card";
-
 const GetGames = () => {
-	const [games, setGames] = useState<Game[] | null>([]);
+  const [games, setGames] = useState<Game[] | null>([]);
 
-	useEffect(() => {
-		getGames().then((games) => {
-			setGames(games);
-		});
-	}, []);
+  useEffect(() => {
+    getGames().then((games) => {
+      setGames(games);
+    });
+  }, []);
 
-	if (games === null) {
-		return <div>Loading...</div>;
-	}
+  if (games === null) {
+    return <div>Loading...</div>;
+  }
   return (
     <div>
       <h1>Games</h1>
@@ -52,7 +44,6 @@ const GetGames = () => {
       })}
     </div>
   );
-
 };
 
 export default GetGames;

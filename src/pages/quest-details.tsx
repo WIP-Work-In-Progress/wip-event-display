@@ -44,25 +44,27 @@ const QuestDetailsPage = () => {
           <CardDescription>{quest.shortDescription}</CardDescription>
         </CardHeader>
         <CardContent>
-          <p className="text-xl text-justify p-5 bg-primary rounded-xl text-secondary m-5">
+          <p className="text-sm md:text-xl text-justify p-5 bg-primary rounded-xl text-secondary m-5">
             {quest.description}
           </p>
-          <div className="grid place-items-center mx-10">
-            <Carousel className=" w-full">
-              <CarouselContent>
-                {quest.photos.map((photo, id) => (
-                  <CarouselItem
-                    key={id}
-                    className="pl-1 md:basis-1/1 lg:basis-1/1 grid place-items-center"
-                  >
-                    <img className="" src={photo.url} alt={photo.name} />
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselNext />
-              <CarouselPrevious />
-            </Carousel>
-          </div>
+          {quest.photos.length !== 0 && (
+            <div className="grid place-items-center mx-10">
+              <Carousel className=" w-full">
+                <CarouselContent>
+                  {quest.photos.map((photo, id) => (
+                    <CarouselItem
+                      key={id}
+                      className="pl-1 md:basis-1/1 lg:basis-1/1 grid place-items-center"
+                    >
+                      <img className="" src={photo.url} alt={photo.name} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselNext />
+                <CarouselPrevious />
+              </Carousel>
+            </div>
+          )}
           {quest.name === "CTF Javascript Edition" && <JsQuest />}
         </CardContent>
         <CardFooter></CardFooter>
@@ -109,7 +111,7 @@ function JsQuest() {
         onSubmit={(e) => redirectToSubpage(e)}
         className="p-5 grid place-items-center"
       >
-        <div className="flex flex-col gap-3 w-3/6">
+        <div className="flex flex-col gap-3 md:w-3/6">
           <Input
             type="text"
             name="url"
@@ -117,13 +119,11 @@ function JsQuest() {
             placeholder="00000"
             onChange={(e) => setUrl(e.target.value)}
           />
-          <div className="grid place-items-center">
-            <Input
-              className="md:w-3/6 cursor-pointer"
-              type="submit"
-              value="Submit decoded secret"
-            />
-          </div>
+          <Input
+            className="md:w-3/6 cursor-pointer"
+            type="submit"
+            value="Submit decoded secret"
+          />
         </div>
       </form>
     </div>
