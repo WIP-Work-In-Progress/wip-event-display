@@ -46,7 +46,7 @@ export default function IndexPage() {
   return (
     <div className="flex flex-col justify-center">
       <div className="flex">
-        <div className="flex flex-col justify-center w-1/5">
+        <div className="hidden md:flex flex-col justify-center w-1/5">
           {presentationMode === PresentationMode.PRESENTING && (
             <div className="mr-auto ml-auto">
               <div className="flex justify-center h-20">
@@ -58,11 +58,12 @@ export default function IndexPage() {
             </div>
           )}
         </div>
-        <div className="flex w-3/5 place-items-center">
+        <div className="flex md:w-3/5 place-items-center">
           <Chrono
             items={roadmap}
             mode={roadmapMode}
             mediaHeight={300}
+            useReadMore
             cardWidth={800}
             activeItemIndex={activeIndex}
             disableToolbar
@@ -80,7 +81,7 @@ export default function IndexPage() {
             }}
           />
         </div>
-        <div className="flex flex-col justify-center w-1/5">
+        <div className="hidden md:flex flex-col justify-center w-1/5">
           {presentationMode === PresentationMode.PRESENTING && (
             <div className="mr-auto ml-auto">
               <QRCodeDisplay
@@ -95,7 +96,7 @@ export default function IndexPage() {
           )}
         </div>
       </div>
-      <div className="flex gap-10">
+      <div className="flex flex-col md:flex-row gap-10">
         {members.map(
           (member) =>
             member.isPresenting && (

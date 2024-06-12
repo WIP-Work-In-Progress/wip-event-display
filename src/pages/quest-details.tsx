@@ -3,7 +3,6 @@ import {
   AccordionContent,
   AccordionItem,
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -24,7 +23,7 @@ import { getGame } from "@/lib/firebase.utils";
 import { Route } from "@/routes/quest/$id";
 import { Game } from "@/types/types";
 import { AccordionTrigger } from "@radix-ui/react-accordion";
-import { redirect, useRouter } from "@tanstack/react-router";
+import { useRouter } from "@tanstack/react-router";
 import { FormEvent, useEffect, useState } from "react";
 
 const QuestDetailsPage = () => {

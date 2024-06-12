@@ -89,3 +89,6 @@
     @apply bg-background text-foreground;
   }
 }
+.show-more {
+  color: white !important;
+}

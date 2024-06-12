@@ -1,11 +1,5 @@
-import Css from "@/components/icons/css";
-import Go from "@/components/icons/go";
-import Html from "@/components/icons/html";
-import Javascript from "@/components/icons/js";
-import { FaJava } from "react-icons/fa";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
