@@ -29,7 +29,6 @@ export interface RoadmapEvent {
       url: string;
     };
   };
-  contributingMembers: string[];
 }
 
 export interface Member {

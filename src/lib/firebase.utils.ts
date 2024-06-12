@@ -78,7 +78,7 @@ export const getGame = async (id: string) => {
 
 export const getRoadmap = async () => {
   const result: RoadmapEvent[] = [];
-  const q = query(roadmapRef, orderBy("startDate"));
+  const q = query(roadmapRef, orderBy("date"));
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
     const data = doc.data();
@@ -96,9 +96,6 @@ export const getRoadmap = async () => {
           url: data.media.source.url,
         },
       },
-      contributingMembers: data.contributingMembers.map((member: string) => {
-        return member;
-      }),
     };
     result.push(event);
   });
@@ -124,9 +121,6 @@ export const getRoadmapEvent = async (id: string) => {
           url: data.media.source.url,
         },
       },
-      contributingMembers: data.contributingMembers.map((member: string) => {
-        return member;
-      }),
     };
     return roadMapEvent;
   } else {
