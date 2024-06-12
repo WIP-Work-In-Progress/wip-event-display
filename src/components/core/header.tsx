@@ -20,19 +20,19 @@ export default function Header() {
             href="/"
             className="hover:text-primary-200 active:text-secondary-300"
           >
-            Strona główna
+            Home page
           </a>
           <a
             href="/representation"
             className="hover:text-primary-200 active:text-secondary-300"
           >
-            O nas
+            About us
           </a>
           <a
             href="/quest"
             className="hover:text-primary-200 active:text-secondary-300"
           >
-            Zadania
+            Quests
           </a>
         </div>
       )}
