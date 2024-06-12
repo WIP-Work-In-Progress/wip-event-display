@@ -17,14 +17,6 @@ export default function IndexPage() {
   const roadmapMode = window.matchMedia("(max-width: 768px)").matches
     ? "VERTICAL"
     : "HORIZONTAL";
-  useEffect(() => {
-    const interval = () =>
-      presentationMode === PresentationMode.PRESENTING &&
-      setActiveIndex((activeIndex + 1) % 4);
-    const id = setInterval(interval, 5000);
-    return () => clearInterval(id);
-  }, [activeIndex, presentationMode]);
-  // const items = []; //TODO: Fill in
 
   useEffect(() => {
     getMembers().then((members) => {
@@ -34,9 +26,19 @@ export default function IndexPage() {
       setRoadmap(roadmap);
     });
   }, []);
+  useEffect(() => {
+    const interval = () =>
+      presentationMode === PresentationMode.PRESENTING &&
+      setActiveIndex((activeIndex + 1) % (roadmap?.length || 10));
+    const id = setInterval(interval, 5000);
+    return () => clearInterval(id);
+  }, [activeIndex, presentationMode]);
 
   if (!members || !roadmap) {
     return <div>Loading...</div>;
+  }
+  if (roadmap.length === 0) {
+    return <div>There are no events in the roadmap</div>;
   }
 
   console.log(roadmap);
@@ -60,6 +62,8 @@ export default function IndexPage() {
           <Chrono
             items={roadmap}
             mode={roadmapMode}
+            mediaHeight={300}
+            cardWidth={800}
             activeItemIndex={activeIndex}
             disableToolbar
             theme={{
@@ -96,7 +100,7 @@ export default function IndexPage() {
           (member) =>
             member.isPresenting && (
               <RepresentationCard key={member.id} member={member} />
-            )
+            ),
         )}
       </div>
     </div>
